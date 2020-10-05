@@ -7,6 +7,7 @@ const ObjectId = require('mongodb').ObjectId;
 require('dotenv').config()
 
 const app = express()
+const port = 5000;
 
 
 var serviceAccount = require("./configs/volunteer-network-8af21-firebase-adminsdk-6omh5-f1a7a9a6c8.json");
@@ -118,6 +119,4 @@ client.connect(err => {
         res.send('Hello World!')
 })
 
-    app.listen(5000, () => {
-        console.log("Listening is working port 5000");
-})
+    app.listen(process.env.PORT || port)
